@@ -5,8 +5,12 @@ function updateCount() {
 }
 
 const increaseButton = document.getElementById("increaseButton")
-increaseButton.addEventListener("click", () => {
+increaseButton.addEventListener("click", () => { 
+    if (upgrade.bougth == true) {
+        count = count + 2;
+    } else {
     count++;
+    }
     updateCount();
 })
    
@@ -56,4 +60,24 @@ halfButton.addEventListener("click", () => {
     updateCount();
 })
 
+let upgrade = {
+    name: "Super-klick",
+    cost: 100,
+    multiplier: 2,
+    bougth: false
+};
 
+const upgradeButton = document.getElementById("upgradeButton")
+upgradeButton.addEventListener("click", () => {
+    if (upgrade.bougth == false) {
+   if (count >= upgrade.cost) {
+    count -= upgrade.cost;
+    upgrade.bougth = true;
+    updateCount();
+   } else {
+    alert('not enough count!')
+   }
+   } else {
+    alert('already bougth!')
+   }
+})
