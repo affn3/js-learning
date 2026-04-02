@@ -6,8 +6,8 @@ function updateCount() {
 
 const increaseButton = document.getElementById("increaseButton")
 increaseButton.addEventListener("click", () => { 
-    if (upgrade.bougth == true) {
-        count = count + 2;
+    if (upgrade.bougth) {
+        count += upgrade.multiplier;
     } else {
     count++;
     }
@@ -81,3 +81,39 @@ upgradeButton.addEventListener("click", () => {
     alert('already bougth!')
    }
 })
+
+let skin = {
+    unlocked: false,
+    activeColor: "black",
+    price: 200
+}
+
+const buySkinBtn = document.getElementById("buySkinButton")
+const skinMenu = document.getElementById("skinMenu")
+const countDisplay = document.getElementById("count")
+
+buySkinBtn.addEventListener("click", () => {
+    if (!skin.unlocked) {
+    if (count >= skin.price) {
+        count -= skin.price;
+        skin.unlocked = true;
+        updateCount();
+
+        skinMenu.style.display = "block";
+        buySkinBtn.innerText = "Choose skin";
+    }  else {
+        alert('not enough count!');
+    } 
+    }
+})
+
+ skinMenu.addEventListener("click", (event) => {
+    if (event.target.classList.contains("color-btn")) {
+        const selectedColor = event.target.getAttribute("data-color");
+
+        skin.activeColor = selectedColor;
+        countDisplay.style.color = selectedColor;
+
+        localStorage.setItem("skinSave", JSON.stringify(skin))
+    }
+ })
