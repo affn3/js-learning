@@ -1,0 +1,27 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px
+}
+
+.buttons {
+    flex-direction: row;
+}
+
+body {
+    background-color: white;
+    color: black;
+    transition: 0.3s; 
+}
+
+body.dark-theme {
+    background-color: #121212;
+    color: white;
+}
+
+body.colorful {
+    background-color: #ff00d4;
+    color: rgb(102, 255, 0);
+}
