@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>test application</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="header">
+<button onclick="darkMode()">dark mode</button>
+<button onclick="colorful()">colorful</button>
+</div>
+<div class="container">
+
+<h1>counter</h1>
+<h2 id="count">0</h1>
+
+<div class="buttons">
+<button id="increaseButton">+</button>
+<button id="decreaseButton">-</button>
+<button id="saveButton">save</button>
+<ul id="history-list"></ul>
+<button id="loadButton">load</button>
+<button id="clearButton">clear</button>
+<button id="doubleButton">double</button>
+<button id="halfButton">half</button>––
+</div>
+
+<h1>random number</h1>
+<h2 id="random">0</h2>
+
+<button id="generateButton">generate</button>
+
+<h1>guess the number</h1>
+<input type="number" id="guessInput" min="1" max="6" placeholder="1-6">
+<button id="compareButton">guess</button>
+
+</div>
+
+<script src="/js/counter.js"></script>
+<script src="/js/random.js"></script>
+<script src="/js/darkmode.js"></script>
+<script src="/js/colorful.js"></script>
+<script src="/js/guessNumber.js"></script>
+
+</body>
+</html>
